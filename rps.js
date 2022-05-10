@@ -1,12 +1,11 @@
 const rpsOptions = Array("Rock", "Paper", "Scissors")
 
-//Randomly select from RPS array
-function computerSelection(rpsArray){
+//Randomly select from RPS array, defaults to RPS
+function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
+{
     return rpsArray[Math.floor(Math.random()
         * rpsArray.length)]     
 }
-
-console.log(computerSelection(rpsOptions))
 
 //Prompt player for input
 function promptPlayer(){
@@ -27,7 +26,7 @@ function formatCaps(word){
     //single word starting upper case ending lower case
     return formattedWord.slice(0,1).toUpperCase()+lowerWord
 }
-console.log(formatCaps(playerSelection))
+
 
 //Make sure player has provided a valid input
 //boolean result to validate
@@ -42,16 +41,11 @@ function isValidInput(rpsArray,formattedInput){
     else {return false}
 }
 
-console.log("Is Valid input = "+
-    isValidInput(rpsOptions,formatCaps(playerSelection)))
-
 
 //Play a round of rock paper scissors
-function playRound(computerInput,playerInput){
+function playRound(computerInput){
     //format playerInput
-    let frmtPlayerSelection = formatCaps(playerInput)
-    
-
+    let frmtPlayerSelection = formatCaps(promptPlayer())
     let loseWinDraw = ""
 
     //initialize for later
@@ -70,7 +64,8 @@ function playRound(computerInput,playerInput){
                     case "Scissors":
                         loseWinDraw="lose";
                         break;
-                }
+                };
+                break;
             case "Paper":
                 switch(frmtPlayerSelection){
                     case "Rock":
@@ -82,7 +77,8 @@ function playRound(computerInput,playerInput){
                     case "Scissors":
                         loseWinDraw="win";
                         break;
-                }
+                };
+                break;
             case "Scissors":
                 switch(frmtPlayerSelection){
                     case "Rock":
@@ -94,7 +90,8 @@ function playRound(computerInput,playerInput){
                     case "Scissors":
                         loseWinDraw="draw";
                         break;
-                }
+                };
+                break;
 
         }
         ///give text depending on victory condition
@@ -108,6 +105,3 @@ function playRound(computerInput,playerInput){
     else {return "Invalid input, you big goof."}
 }
 
-console.log(promptPlayer())
-console.log(playRound(computerSelection(rpsOptions)
-,playerSelection))
