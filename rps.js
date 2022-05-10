@@ -8,8 +8,12 @@ function computerSelection(rpsArray){
 
 console.log(computerSelection(rpsOptions))
 
-//Player input
-let playerSelection = prompt("Choose Rock, Paper, or Scissors. Now.")
+//Prompt player for input
+function promptPlayer(){
+    let playerSelection = prompt("Choose Rock, Paper, or Scissors. Now.")
+    return playerSelection    
+}
+
 
 //Takes text and returns starting upper case first letter
 //and ending in all lower cases with no spaces
@@ -104,6 +108,6 @@ function playRound(computerInput,playerInput){
     else {return "Invalid input, you big goof."}
 }
 
-
+console.log(promptPlayer())
 console.log(playRound(computerSelection(rpsOptions)
 ,playerSelection))
