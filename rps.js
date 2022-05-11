@@ -50,7 +50,11 @@ function playRound(computerInput){
 
     //initialize for later
     //only play if input is valid (rock paper scissors)
-    if (isValidInput(rpsOptions,frmtPlayerSelection)=== true)
+    if (isValidInput(rpsOptions,frmtPlayerSelection)=== false)
+        {
+            console.log(`"${frmtPlayerSelection}" is an invalid input, you big goof.`);
+        }
+    else 
     {
         switch(computerInput){
             case "Rock":
@@ -96,12 +100,12 @@ function playRound(computerInput){
         }
         ///give text depending on victory condition
         switch(loseWinDraw){
-            case "win": return `You win! ${frmtPlayerSelection} beats ${computerInput}.`
-            case "lose": return `You lose! ${computerInput} beats ${frmtPlayerSelection}.`
-            case "draw": return "This one's a draw!"                
+            case "win": return `You win! ${frmtPlayerSelection} beats ${computerInput}.`;
+            case "lose": return `You lose! ${computerInput} beats ${frmtPlayerSelection}.`;
+            case "draw": return "This one's a draw!";
         }
     }
-    
-    else {return "Invalid input, you big goof."}
 }
+
+
 
