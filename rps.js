@@ -123,147 +123,19 @@ function game(){
     //play five round and tally scores
     for (let i = 0; i<5; i++){
         let results = playRound();
+        results[2] === "lose"
         if (results[2] === "win"){playerScore += 1 }
         else if (results[2] === "lose"){cpuScore += 1}
         announceResults(results);
     }
     
+
     //declare winner
-    if(playerScore>cpuScore){console.log(`Score is ${playerScore}-${playerScore}. Bruh, you win.`)}
-    else if (playerScore<cpuScore){console.log(`Score is ${playerScore}-${playerScore}. You lose. Bruh.`)}
-    else {console.log(`Score is ${playerScore}-${playerScore}. Draws can happend with odd numbers of rounds too!`)}
+    if(playerScore>cpuScore){console.log(`Score is ${playerScore}:${cpuScore}. Bruh, you win.`)}
+    else if (playerScore<cpuScore){console.log(`Score is ${playerScore}:${cpuScore}. You lose. Bruh.`)}
+    else {console.log(`Score is ${playerScore}-${cpuScore}. Draws can happend with odd numbers of rounds too!`)}
 }
 
 game()
 
 
-
-
-/*
-//Play a round of rock paper scissors
-function playRound(){
-    let computerInput = computerSelection()
-    let frmtPlayerSelection = promptPlayer()
-    let loseWinDraw = ""
-    switch(computerInput){
-        case "Rock":
-            switch(frmtPlayerSelection){
-                case "Rock":
-                    return loseWinDraw="draw";
-                    break;
-                case "Paper":
-                    return loseWinDraw="win";
-                    break;
-                case "Scissors":
-                    return loseWinDraw="lose";
-                    break;
-            };
-            break;
-        case "Paper":
-            switch(frmtPlayerSelection){
-                case "Rock":
-                    return loseWinDraw="lose";
-                    break;
-                case "Paper":
-                    return loseWinDraw="draw";
-                    break;
-                case "Scissors":
-                    return loseWinDraw="win";
-                    break;
-            };
-            break;
-        case "Scissors":
-            switch(frmtPlayerSelection){
-                case "Rock":
-                    return loseWinDraw="win";
-                    break;
-                case "Paper":
-                    return loseWinDraw="lose";
-                    break;
-                case "Scissors":
-                    return loseWinDraw="draw";
-                    break;
-            };
-            break;
-
-    }
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-//Play a round of rock paper scissors
-function playRound(computerInput){
-//format playerInput
-let frmtPlayerSelection = formatCaps(promptPlayer())
-let loseWinDraw = ""
-
-//initialize for later
-//only play if input is valid (rock paper scissors)
-if (isValidInput(rpsOptions,frmtPlayerSelection)=== false)
-{
-console.log(`"${frmtPlayerSelection}" is an invalid input, you big goof.`);
-}
-else 
-{
-switch(computerInput){
-case "Rock":
-switch(frmtPlayerSelection){
-case "Rock":
-loseWinDraw="draw";
-break;
-case "Paper":
-loseWinDraw="win";
-break;
-case "Scissors":
-loseWinDraw="lose";
-break;
-};
-break;
-case "Paper":
-switch(frmtPlayerSelection){
-case "Rock":
-loseWinDraw="lose";
-break;
-case "Paper":
-loseWinDraw="draw";
-break;
-case "Scissors":
-loseWinDraw="win";
-break;
-};
-break;
-case "Scissors":
-switch(frmtPlayerSelection){
-case "Rock":
-loseWinDraw="win";
-break;
-case "Paper":
-loseWinDraw="lose";
-break;
-case "Scissors":
-loseWinDraw="draw";
-break;
-};
-break;
-
-}
-///give text depending on victory condition
-switch(loseWinDraw){
-case "win": return `You win! ${frmtPlayerSelection} beats ${computerInput}.`;
-case "lose": return `You lose! ${computerInput} beats ${frmtPlayerSelection}.`;
-case "draw": return "This one's a draw!";
-}
-}
-}
-*/
