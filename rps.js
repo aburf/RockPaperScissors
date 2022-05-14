@@ -12,19 +12,19 @@ function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
 //Formats text to first letter upper case; the rest lower case
 function formatCaps(word){
     //Remove spaces (which shouldn't exist), and make all lower case
-    let formattedWord = word.toLowerCase().trim()
+    let formattedWord = word.toLowerCase().trim();
     
     //remove first character from to ensure lower case second word part
-    let lowerWord = formattedWord.substr(1)
+    let lowerWord = formattedWord.substr(1);
     
     //single word starting upper case ending lower case
-    return formattedWord.slice(0,1).toUpperCase()+lowerWord
+    return formattedWord.slice(0,1).toUpperCase()+lowerWord;
 }
 
 //Make sure player has provided a valid input
 //boolean result to validate
 function isValidInput(rpsArray,formattedInput){
-    let isMatch = 0
+    let isMatch = 0;
     for(let x in rpsArray){
         if (rpsArray[x] === formattedInput){
             isMatch+=1
@@ -45,16 +45,16 @@ function promptPlayer(){
         }
     else 
         {
-        return frmtPlayerSelection  
+        return frmtPlayerSelection ; 
         }  
 }
 
 
 //Play a round of rock paper scissors
 function playRound(){
-    let computerInput = computerSelection()
-    let frmtPlayerSelection = promptPlayer()
-    let loseWinDraw = ""
+    let computerInput = computerSelection();
+    let frmtPlayerSelection = promptPlayer();
+    let loseWinDraw = "";
 
     //Pairings where first column wins vs second
     let winOutcomes = [
@@ -109,12 +109,6 @@ function announceResults(results){
         case "draw": console.log( "This one's a draw!");
     }
 }
-                    
-/*
-console.log(computerSelection())
-console.log(playRound(computerSelection()))
-console.log(tellResults(playRound(computerSelection())))
-*/
 
 //play five rounds of RPS; declare a winner
 function game(){
