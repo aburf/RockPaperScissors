@@ -9,6 +9,28 @@ function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
 }
 
 
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+console.log(buttons)
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    console.log(button.id);
+  });
+});
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+
 //Formats text to first letter upper case; the rest lower case
 function formatCaps(word){
     //Remove spaces (which shouldn't exist), and make all lower case
@@ -52,6 +74,7 @@ function promptPlayer(){
 
 //Play a round of rock paper scissors
 function playRound(){
+    userClick();
     let computerInput = computerSelection();
     let frmtPlayerSelection = promptPlayer();
     let loseWinDraw = "";
@@ -100,7 +123,7 @@ function playRound(){
 function announceResults(results){
     let human = results[0];
     let cpu = results[1];
-    let WLD = results[2]; //WLD = lose/win/draw
+    let WLD = results[2]; //WLD = win/lose/draw
     switch(WLD){
         case "win":console.log(`You win! ${human} beats ${cpu}.`);
             break;
@@ -129,7 +152,3 @@ function game(){
     else if (playerScore<cpuScore){console.log(`Score is ${playerScore}:${cpuScore}. You lose. Bruh.`)}
     else {console.log(`Score is ${playerScore}-${cpuScore}. Draws can happend with odd numbers of rounds too!`)}
 }
-
-
-
-
