@@ -1,6 +1,51 @@
-const rpsOptions = Array("Rock", "Paper", "Scissors");
 
- 
+let userScoreVal = 0;
+let compScoreVal = 0;
+
+
+//document.getElementByClass("playerScore") = 0;
+const scoreContainer = document.querySelector('#scoreContainer');
+const userScoreDiv = document.createElement('div');
+const hyphenDiv = document.createElement('div');
+const compScoreDiv = document.createElement('div');
+
+userScoreDiv.classList.add('userScoreDiv');
+userScoreDiv.textContent = userScoreVal;
+
+hyphenDiv.classList.add('compScoreVal');
+hyphenDiv.textContent = '-';
+
+compScoreDiv.classList.add('compScoreVal');
+compScoreDiv.textContent = compScoreVal;
+
+scoreContainer.appendChild(userScoreDiv);
+scoreContainer.appendChild(hyphenDiv);
+scoreContainer.appendChild(compScoreDiv);
+
+/*
+<!-- your HTML file: -->
+<body>
+  <h1>
+    THE TITLE OF YOUR WEBPAGE
+  </h1>
+  <div id="container"></div>
+</body>
+// your JavaScript file
+const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent = 'This is the glorious text-content!';
+
+container.appendChild(content);
+
+*/
+
+
+
+
+
+
 //Randomly select from RPS array, defaults to RPS
 function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
 {
@@ -9,28 +54,9 @@ function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
 }
 
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
 
-
-// buttons is a node list. It looks and acts much like an array.
-const buttons = document.querySelectorAll('button');
-console.log(buttons)
-// we use the .forEach method to iterate through each button
-buttons.forEach((button) => {
-  // and for each one we add a 'click' listener
-  button.addEventListener('click', () => {
-    console.log(button.id);
-  });
-});
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-
-
-
+/*
+// no longer needed due to clicking input
 //Formats text to first letter upper case; the rest lower case
 function formatCaps(word){
     //Remove spaces (which shouldn't exist), and make all lower case
@@ -70,13 +96,38 @@ function promptPlayer(){
         return frmtPlayerSelection ; 
         }  
 }
+*/
+
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    console.log(button.id);
+    return button.id; 
+  });
+});
+
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
 
 
 //Play a round of rock paper scissors
 function playRound(){
-    userClick();
     let computerInput = computerSelection();
-    let frmtPlayerSelection = promptPlayer();
+    let frmtPlayerSelection = button.id; //promptPlayer();
+    
     let loseWinDraw = "";
 
     //Pairings where first column wins vs second
