@@ -49,17 +49,21 @@ buttons.forEach((button) => {
     userScoreDiv.textContent = userScoreVal;
     compScoreDiv.textContent = compScoreVal;
     drawDiv.textContent = drawScoreVal;
+
+    if (userScoreVal===5){
+            alert("Congrats! You win!");
+            userScoreVal = 0;
+            compScoreVal = 0;
+            drawScoreVal = 0;
+    }
+    else if (compScoreVal===5){
+        alert("Sorry, you're a loser...");
+            userScoreVal = 0;
+            compScoreVal = 0;
+            drawScoreVal = 0;
+    }
   });
 });
-
-/*
-const btn = document.getElementById('btn');
-
-// ✅ Change button text on click
-btn.addEventListener('click', function handleClick() {
-  btn.textContent = 'Button clicked';
-});
-*/
 
 //Randomly select from RPS array, defaults to RPS
 function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
@@ -67,65 +71,6 @@ function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
     return rpsArray[Math.floor(Math.random()
         * rpsArray.length)]     
 }
-
-
-
-/*
-// no longer needed due to clicking input
-//Formats text to first letter upper case; the rest lower case
-function formatCaps(word){
-    //Remove spaces (which shouldn't exist), and make all lower case
-    let formattedWord = word.toLowerCase().trim();
-    
-    //remove first character from to ensure lower case second word part
-    let lowerWord = formattedWord.substr(1);
-    
-    //single word starting upper case ending lower case
-    return formattedWord.slice(0,1).toUpperCase()+lowerWord;
-}
-
-//Make sure player has provided a valid input
-//boolean result to validate
-function isValidInput(rpsArray,formattedInput){
-    let isMatch = 0;
-    for(let x in rpsArray){
-        if (rpsArray[x] === formattedInput){
-            isMatch+=1
-        }
-    }
-    if(isMatch > 0){return true}
-    else {return false}
-}
-
-//Prompt player for input, and ensure it is valid, return formatted
-function promptPlayer(){
-    let playerSelection = prompt("Choose Rock, Paper, or Scissors. Now.")
-    let frmtPlayerSelection = formatCaps(playerSelection)
-    if (isValidInput(rpsOptions,frmtPlayerSelection)=== false)
-        {
-            console.log(`"${playerSelection}" is an invalid input, you big goof.`);
-            promptPlayer()
-        }
-    else 
-        {
-        return frmtPlayerSelection ; 
-        }  
-}
-*/
-
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-
-
-
-
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-
 
 
 
@@ -176,36 +121,3 @@ function playRound(userInput){
     }
 }
 
-//results == loseWinDraw from playRound()
-function announceResults(results){
-    let human = results[0];
-    let cpu = results[1];
-    let WLD = results[2]; //WLD = win/lose/draw
-    switch(WLD){
-        case "win":console.log(`You win! ${human} beats ${cpu}.`);
-            break;
-        case "lose": console.log( `You lose! ${cpu} beats ${human}.`);
-            break;
-        case "draw": console.log( "This one's a draw!");
-    }
-}
-
-//play five rounds of RPS; declare a winner
-function game(){
-    let playerScore = 0;
-    let cpuScore = 0;
-    //play five round and tally scores
-    for (let i = 0; i<5; i++){
-        let results = playRound();
-        results[2] === "lose"
-        if (results[2] === "win"){playerScore += 1 }
-        else if (results[2] === "lose"){cpuScore += 1}
-        announceResults(results);
-    }
-    
-
-    //declare winner
-    if(playerScore>cpuScore){console.log(`Score is ${playerScore}:${cpuScore}. Bruh, you win.`)}
-    else if (playerScore<cpuScore){console.log(`Score is ${playerScore}:${cpuScore}. You lose. Bruh.`)}
-    else {console.log(`Score is ${playerScore}-${cpuScore}. Draws can happend with odd numbers of rounds too!`)}
-}
