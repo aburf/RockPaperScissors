@@ -22,29 +22,6 @@ scoreContainer.appendChild(userScoreDiv);
 scoreContainer.appendChild(hyphenDiv);
 scoreContainer.appendChild(compScoreDiv);
 
-/*
-<!-- your HTML file: -->
-<body>
-  <h1>
-    THE TITLE OF YOUR WEBPAGE
-  </h1>
-  <div id="container"></div>
-</body>
-// your JavaScript file
-const container = document.querySelector('#container');
-
-const content = document.createElement('div');
-content.classList.add('content');
-content.textContent = 'This is the glorious text-content!';
-
-container.appendChild(content);
-
-*/
-
-
-
-
-
 
 //Randomly select from RPS array, defaults to RPS
 function computerSelection(rpsArray=Array("Rock", "Paper", "Scissors"))
